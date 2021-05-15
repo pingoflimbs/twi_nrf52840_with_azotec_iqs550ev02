@@ -1,0 +1,54 @@
+#git rm -r --cached .
+#git add .
+#git commit -m "fixed commit"
+*.axf
+*.swp
+*.htm
+*.Inp
+*.map
+*.tra
+*.dep
+*._2i
+*.l2p
+*.__i
+*.fed
+*.crf
+*.d
+*.o
+*.lst
+*.lnp
+*.bak
+*.scvd
+
+*.ini
+*.iex
+*.sct
+*.uvgui.*
+*.uvguix.*
+*.tmp
+**/JLinkLog.txt
+**/_viminfo
+**/_vimtags
+_build/
+RTE/
+
+## Segger Embedded Studio ##
+*.jlink
+*.emSession
+**/ses/Output/
+
+## Visual Studio Code ##
+.vscode/
+.history/
+
+##STM##
+*.dep
+*.pdb
+*.spy
+*.stw
+*.wdb
+*.wed
+Debug
+Release
+
+*.rej
