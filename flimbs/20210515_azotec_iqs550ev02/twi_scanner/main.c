@@ -118,13 +118,14 @@ int main(void)
     NRF_LOG_FLUSH();
     twi_init();
 
-    nrf_gpio_pin_dir_set(PIN_RST,NRF_GPIO_PIN_DIR_OUTPUT);
-    //nrf_gpio_pin_dir_set(PIN_INT,NRF_GPIO_PIN_DIR_INPUT);
-
+    nrf_gpio_pin_dir_set(PIN_RST,NRF_GPIO_PIN_DIR_OUTPUT);    
+    
     nrf_gpio_pin_write(PIN_RST,1);
 
     for (address = 1; address <= TWI_ADDRESSES; address++)
     {
+      for(uint8_t i=0; i<2; i++)
+      {
         err_code = nrf_drv_twi_rx(&m_twi, address, &sample_data, sizeof(sample_data));
         if (err_code == NRF_SUCCESS)
         {
@@ -132,8 +133,8 @@ int main(void)
             NRF_LOG_INFO("TWI device detected at address 0x%x.", address);
         }
         NRF_LOG_FLUSH();
-    }
-    nrf_gpio_pin_write(PIN_RST,0);
+      }
+    }    
 
     if (!detected_device)
     {
